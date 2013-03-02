@@ -1,0 +1,10 @@
+	<div id="container" class="clearfix">	
+		<div check-last ng-repeat="thumbnail in thumbnails" class="element transition comm" data-category="transition">
+			<figure>
+				<img ng-src="assets/components/thumbnails/images/{{$index + 1}}.jpg" style="width: 250px;">
+				<figcaption>
+					<a href="#"> {{thumbnail.name}} </a><br> {{thumbnail.description}}
+				</figcaption>
+			</figure>
+		</div>
+	</div>

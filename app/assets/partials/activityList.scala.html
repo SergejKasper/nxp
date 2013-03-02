@@ -1,0 +1,16 @@
+<div class="row-1">
+	<section class="grid  clearfix" id="grid" ng-controller="ActivityListController">
+		<div class="span12">
+			<div id="container" class="clearfix">
+				<div ng-repeat="activity in activities" class="element transition comm" data-category="transition">
+					<figure>
+						<img src="components/thumbnails/images/{{$index + 1}}.jpg" style="width: 250px;">
+						<figcaption>
+							<a href="#"> {{activity.name}} </a><br> {{activity.description}}
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

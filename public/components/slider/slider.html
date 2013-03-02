@@ -1,0 +1,17 @@
+<section>
+	<div class="wrapper">
+		<div id="ei-slider" class="ei-slider">
+			<ul class="ei-slider-large">
+				<li ng-repeat="slide in slides"><img ng-src="assets/components/slider/images/large/{{slide.index +1}}.jpg" alt="image01" />
+					<div class="ei-title">
+						<h2>{{slide.title}}</h2>
+						<h3>{{slide.subtitle}}</h3>
+					</div></li>
+			</ul>
+			<ul class="ei-slider-thumbs">
+				<li class="ei-slider-element">Current</li>
+				<li ng-repeat="slide in slides"><a href="#">Slide {{slide.index + 1}}</a> <img ng-src="assets/components/slider/images/thumbs/{{slide.index + 1}}.jpg" alt="slide {{slide.index + 1}} Miniatur" /></li>
+			</ul>
+		</div>
+	</div>
+</section>

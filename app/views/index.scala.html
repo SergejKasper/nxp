@@ -1,0 +1,11 @@
+@(message: String) @main("Welcome to Play 2.1"){
+<div ng-controller="IndexPageController">
+	<div slider slides="slides"></div>
+	<div subnav menupoints="subnav.menupoints"></div>
+</div>
+<div class="bg-content">
+	<div class="container" style="padding-left: 0px; margin: 30px 0px;">
+		<div ng-view></div>
+	</div>
+</div>
+}
