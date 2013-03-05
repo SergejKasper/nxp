@@ -5,7 +5,7 @@
 
 section .wrapper * {
 	max-height: none;
-	max-width: inherit;
+	max-width: none;
 }
 
 .ei-slider {

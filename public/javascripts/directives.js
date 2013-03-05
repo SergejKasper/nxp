@@ -270,7 +270,7 @@ myEventModule.directive('slider', function($parse) {
 		templateUrl : '/assets/components/slider/slider.html',
 		link : function postLink(scope, iElement, attrs) {
 			iElement.ready(function() {
-				$(window).load(
+				$(document).ready(
 				function() {		
 				$('#ei-slider').eislideshow({
 					easing : 'easeOutExpo',
