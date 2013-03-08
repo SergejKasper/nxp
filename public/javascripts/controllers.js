@@ -32,31 +32,31 @@ function IndexPageController($scope) {
 
 function ActivityListController($scope) {
 	$scope.activities = [ {
-		"name" : "activityOne",
+		"name" : "Dance Battle",
 		"description" : "Legendary Awesomeness ahead!"
 	}, {
-		"name" : "activity2",
+		"name" : "Wer zuerst kommt...",
 		"description" : "Some awesome Party Activity"
 	}, {
-		"name" : "activity3",
+		"name" : "Songvote",
 		"description" : "Even more awesome Party Activity"
 	}, {
-		"name" : "activity4",
+		"name" : "Partyshots",
 		"description" : "The most awesome Party Activity since genesis!"
 	}, {
-		"name" : "activity5",
+		"name" : "Poker warmup",
 		"description" : "..And the party goes on!"
 	}, {
-		"name" : "activity6",
+		"name" : "Social Star",
 		"description" : "Can you handle this ?!"
 	}, {
-		"name" : "activity7",
+		"name" : "Party non stop",
 		"description" : "Showdown!"
 	}, {
-		"name" : "activity8",
+		"name" : "Vorglühen",
 		"description" : "Bigtime finish!"
 	}, {
-		"name" : "activity9",
+		"name" : "Networker",
 		"description" : "Afterparty!"
 	} ];
 

@@ -1,7 +1,8 @@
 <div class="row-1">
-	<section class="grid  clearfix" id="grid" ng-controller="ActivityListController">
+	<section ng-controller="ActivityListController">
+	Title: <input ng-model="narrowprogram">
 		<div class="span12">
-				<div masonry thumbnails="activities"></div>
+				<div masonry thumbnails="activities" thumbfilter="narrowprogram"></div>
 		</div>
 	</section>
 </div>

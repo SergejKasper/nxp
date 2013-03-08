@@ -11,51 +11,48 @@ myEventModule
 						restrict : 'A',
 						replace : true,
 						scope : {
-							thumbnails : '='
+							thumbnails : '=',
+							thumbfilter : '='
 						},
 						templateUrl : '/assets/components/thumbnails/masonry.html',
 						link : function postLink(scope, iElement, attrs) {
 							// console.log(scope.$position);
 
 							scope
-									.$apply(function() {
-										$
-												.extend(
-														$.expr[':'],
-														{
-															bottomInViewport : function(
-																	el) {
-																var scrollTop = (document.documentElement.scrollTop || document.body.scrollTop), elOffsetTop = $(
-																		el)
-																		.offset().top, elH = $(
-																		el)
-																		.height(), descrH = $(
-																		el)
-																		.find(
-																				'figcaption')
-																		.outerHeight(
-																				true), winH = (window.innerHeight && window.innerHeight < $(
-																		window)
-																		.height()) ? window.innerHeight
-																		: $(
-																				window)
-																				.height();
-
-																return (elOffsetTop
-																		+ elH > scrollTop && elOffsetTop
-																		+ elH < scrollTop
-																		+ winH)
-																		|| (scrollTop
-																				+ winH
-																				- elOffsetTop < descrH);
-															}
-														});
-									});
-
-							scope
 									.$watch(
 											attrs.thumbnails,
 											function() {
+												$
+														.extend(
+																$.expr[':'],
+																{
+																	bottomInViewport : function(
+																			el) {
+																		var scrollTop = (document.documentElement.scrollTop || document.body.scrollTop), elOffsetTop = $(
+																				el)
+																				.offset().top, elH = $(
+																				el)
+																				.height(), descrH = $(
+																				el)
+																				.find(
+																						'figcaption')
+																				.outerHeight(
+																						true), winH = (window.innerHeight && window.innerHeight < $(
+																				window)
+																				.height()) ? window.innerHeight
+																				: $(
+																						window)
+																						.height();
+
+																		return (elOffsetTop
+																				+ elH > scrollTop && elOffsetTop
+																				+ elH < scrollTop
+																				+ winH)
+																				|| (scrollTop
+																						+ winH
+																						- elOffsetTop < descrH);
+																	}
+																});
 
 												var $grid = $('#grid'), $items = $grid
 														.children('figure');
@@ -105,29 +102,7 @@ myEventModule
 																								$description,
 																								itemWidth);
 																					}
-																					// bind
-																					// the
-																					// scroll
-																					// event
-																					// to
-																					// the
-																					// window
-																					// while
-																					// hovering
-																					// an
-																					// item
-																					// while
-																					// scrolling,
-																					// we
-																					// check
-																					// if
-																					// the
-																					// description
-																					// should
-																					// be
-																					// rendered
-																					// or
-																					// not
+
 																					$(
 																							window)
 																							.on(
@@ -270,15 +245,13 @@ myEventModule.directive('slider', function($parse) {
 		templateUrl : '/assets/components/slider/slider.html',
 		link : function postLink(scope, iElement, attrs) {
 			iElement.ready(function() {
-				$(document).ready(
-				function() {		
-				$('#ei-slider').eislideshow({
-					easing : 'easeOutExpo',
-					titleeasing : 'easeOutExpo',
-					titlespeed : 1200
-				})
-				}
-				);
+				$(document).ready(function() {
+					$('#ei-slider').eislideshow({
+						easing : 'easeOutExpo',
+						titleeasing : 'easeOutExpo',
+						titlespeed : 1200
+					})
+				});
 			});
 		}
 	};

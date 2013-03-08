@@ -1,5 +1,7 @@
-	<div id="container" class="clearfix">	
-		<div check-last ng-repeat="thumbnail in thumbnails" class="element transition comm" data-category="transition">
+
+<div id="masonry-container" class="clearfix">
+	<div class="grid  clearfix" id="grid">
+		<div check-last ng-repeat="thumbnail in thumbnails | filter:thumbfilter" class="element transition comm" data-category="transition">
 			<figure>
 				<img ng-src="assets/components/thumbnails/images/{{$index + 1}}.jpg">
 				<figcaption>
@@ -8,3 +10,4 @@
 			</figure>
 		</div>
 	</div>
+</div>

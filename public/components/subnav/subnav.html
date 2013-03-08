@@ -1,7 +1,10 @@
 <div class="container subnav-container">
-	<div class="inverse-subnav pull-center" id="subnav">
+	<div class="inverse-subnav" id="subnav">
 		<ul class="nav nav-pills">
-			<li ng-repeat="menupoint in menupoints"><a href="{{menupoint.url}}">{{menupoint.name}}</a></li>
+			<li ng-repeat="menupoint in menupoints" class="pull-left"><a href="{{menupoint.url}}">{{menupoint.name}}</a></li>
+			<li class="navbar-search pull-right" style="margin-right: 10px; ">
+				<input type="text" class="search-query " placeholder="Suche im Partyprogramm!" ng-model="narrowprogram">
+			</li>
 		</ul>
 	</div>
 </div>
