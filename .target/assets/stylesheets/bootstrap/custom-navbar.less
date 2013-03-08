@@ -1,24 +1,40 @@
-.navbar-fixed-top, .navbar-fixed-bottom, .subnav {
+.navbar-fixed-top,.navbar-fixed-bottom,.subnav {
 	left: auto;
 	right: auto;
 	width: inherit;
 }
 
-.navbar-fixed-top, .navbar-fixed-bottom {
+.navbar-fixed-top,.navbar-fixed-bottom {
 	margin-bottom: 0 !important;
 }
 
-div.subnav{
-	margin: 0 0 0 auto;
-}
-.subnav-container{
-	height: 65px;
+#subnav {
+	background-color: @grayDark;
+	min-height: 55px;
 }
 
+.subnav-container {
+	height: 55px;
+}
 
 .subnav-fixed {
-    border-color: #D5D5D5;
-    position: fixed;
-    z-index: 1020;
-    float: none !important;
+	width: inherit;
+	top: 0px; 
+	position : fixed;
+	z-index: 1020;
+	float: none !important;
+	position: fixed;
+}
+
+@media ( max-width : @navbarCollapseWidth) {
+	.subnav-fixed {
+		top: 0px !important;
+	}
+}
+
+@media ( max-width : 767px) {
+	.subnav-fixed {
+		right: 0px;
+		left: 0px;
+	}
 }
