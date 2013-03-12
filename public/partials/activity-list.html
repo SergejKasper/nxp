@@ -2,7 +2,8 @@
 	<section ng-controller="ActivityListController">
 	Title: <input ng-model="narrowprogram">
 		<div class="span12">
-				<div masonry thumbnails="activities" thumbfilter="narrowprogram"></div>
+				<div isotope='activities' item-asc='sortAsc'></div>
 		</div>
+		
 	</section>
 </div>

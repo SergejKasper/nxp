@@ -30,35 +30,17 @@ function IndexPageController($scope) {
 	];
 }
 
-function ActivityListController($scope) {
-	$scope.activities = [ {
-		"name" : "Dance Battle",
-		"description" : "Legendary Awesomeness ahead!"
-	}, {
-		"name" : "Wer zuerst kommt...",
-		"description" : "Some awesome Party Activity"
-	}, {
-		"name" : "Songvote",
-		"description" : "Even more awesome Party Activity"
-	}, {
-		"name" : "Partyshots",
-		"description" : "The most awesome Party Activity since genesis!"
-	}, {
-		"name" : "Poker warmup",
-		"description" : "..And the party goes on!"
-	}, {
-		"name" : "Social Star",
-		"description" : "Can you handle this ?!"
-	}, {
-		"name" : "Party non stop",
-		"description" : "Showdown!"
-	}, {
-		"name" : "Vorglühen",
-		"description" : "Bigtime finish!"
-	}, {
-		"name" : "Networker",
-		"description" : "Afterparty!"
-	} ];
+function ActivityListController($scope, $http) {
+	$scope.url = '/assets/json/activities.json';
+	$scope.activities = [];
+	$scope.fetchRecipients = function(){
+		$http.get($scope.url).then(function(result) {
+			$scope.activities = result.data;
+		});
+	}
+	$scope.fetchRecipients();
+    $scope.sortAsc = true; 
+    $scope.update = function() { $scope.sortAsc = !$scope.sortAsc; };
 
 }
 

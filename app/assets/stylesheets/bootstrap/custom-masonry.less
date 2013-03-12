@@ -1,28 +1,12 @@
-.grid {
-	margin: 30px auto;
-}
 
-.grid figure {
-	max-width: 180px;
-	display: block;
-	float: left;
-	margin: 0 1% 10px 1%;
-	cursor: pointer;
-	overflow: hidden;
-}
-
-.grid figure img {
-	display: block;
-}
-
-.grid figure figcaption {
+section article figure figcaption {
 	position: absolute;
 	font-size: 16px;
 	font-weight: 400;
 	left: auto;
 	width: 100%;
 	height: 60px;
-	bottom: -60px;
+	bottom: -40px;
 	padding: 20px;
 	color: #ddd;
 	background: #18bcbc;
@@ -34,20 +18,64 @@
 	transition: bottom 0.2s ease-in-out;
 }
 
-.grid figure figcaption a {
+section article figure figcaption a {
 	color: #fff;
 }
 
-.grid figure figcaption a:hover {
+section article figure figcaption a:hover {
 	color: #ffd468;
 }
 
-.grid figure:hover figcaption {
+section article figure:hover figcaption {
 	bottom: 0px;
 }
 
-@media (min-width : 770px) {
-	#masonry-container{
-		margin: 0px 30px;
-	}
+section {
+    margin: 30px auto;
+}
+section article {
+    display: block;
+	float: left;
+	max-width: 250px;
+	margin: 0 1% 10px 1%;
+	cursor: pointer;
+	overflow: hidden;
+}
+figure{
+	display: block;
+	margin: 0px;
+}
+section article figure img{
+	display: block;
+}
+
+.isotope, .isotope .isotope-item {
+    /* change duration value to whatever you like */
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    -ms-transition-property: height, width;
+    -o-transition-property: height, width;
+    transition-property: height, width;
+}
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    -o-transition-property: -o-transform, opacity;
+    transition-property: transform, opacity;
+}
+/**** disabling Isotope CSS3 transitions ****/
+ .isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition {
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
 }
