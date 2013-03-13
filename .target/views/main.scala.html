@@ -56,6 +56,39 @@
 				<div class="container">
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 					</a> <a class="brand" href="@routes.Application.index()">Noise Experience</a>
+					<div class="nav-collapse collapse pull-center">
+						<ul class="nav">
+							<li class="@("active".when(nav==""))"><a href="@routes.Application.index()">@Messages("playauthenticate.navigation.home")</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Das Event <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li class="nav-header"><a href="#about">Dein Program gestalten !</a></li>
+									<li class="divider"></li>
+									<li><a href="#contact">Location</a></li>
+									<li><a href="#about">Gäste</a></li>
+									<li><a href="#">Wir</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+							</li>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mein Program <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li class="@("active".when(nav=="restricted"))"><a href="@routes.Application.restricted()">@Messages("playauthenticate.navigation.restricted")</a></li> 
+									@subjectNotPresent() {
+									<li class="@("active".when(nav=="signup"))"><a href="@routes.Application.signup()">@Messages("playauthenticate.navigation.signup")</a></li> 
+									}
+									<li class="nav-header"><a href="#about">Mein Partyplan</a></li>
+									<li class="divider"></li>
+									<li><a href="#pics">Gallerie</a></li>
+									<li><a href="#">Facebook</a></li>
+									<li><a href="#">Twitter</a></li>
+								</ul>
+						</ul>
+						<!--<form class="navbar-form pull-right">
+						<input class="span2" type="text" placeholder="Email"> <input
+							class="span2" type="password" placeholder="Password">
+						<button type="submit" class="btn">Sign in</button>
+					</form>-->
+					</div>
 					<div class="btn-group pull-right">
 						@subjectPresentOr() {
 						 @defining(Application.getLocalUser(session())) { user => 
@@ -72,35 +105,6 @@
 						}{ 
 						<a href="@routes.Application.login()" class="btn btn-primary btn-mini @("disabled".when(nav=="login"))">@Messages("playauthenticate.navigation.login")</a>
 						}
-					</div>
-					<div class="nav-collapse collapse">
-						<ul class="nav">
-							<li class="active"><a href="#">Home</a></li>
-							<li><a href="#about">Gästeliste</a></li>
-							<li><a href="#contact">Location</a></li>
-							<li><a href="#pics">Pics und Videos</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Weiteres <b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Sponsoren</a></li>
-									<li><a href="#">Über uns</a></li>
-									<li><a href="#">Kontakt</a></li>
-									<li class="divider"></li>
-									<li class="nav-header">Folgt uns</li>
-									<li><a href="#">Facebook</a></li>
-									<li><a href="#">Twitter</a></li>
-								</ul>
-							</li>
-							<li class="@("active".when(nav==""))"><a href="@routes.Application.index()">@Messages("playauthenticate.navigation.home")</a></li>
-							<li class="@("active".when(nav=="restricted"))"><a href="@routes.Application.restricted()">@Messages("playauthenticate.navigation.restricted")</a></li> 
-							@subjectNotPresent() {
-							<li class="@("active".when(nav=="signup"))"><a href="@routes.Application.signup()">@Messages("playauthenticate.navigation.signup")</a></li> 
-							}
-						</ul>
-						<!--<form class="navbar-form pull-right">
-						<input class="span2" type="text" placeholder="Email"> <input
-							class="span2" type="password" placeholder="Password">
-						<button type="submit" class="btn">Sign in</button>
-					</form>-->
 					</div>
 					<!--/.nav-collapse -->
 				</div>
