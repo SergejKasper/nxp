@@ -32,10 +32,10 @@ section article figure:hover figcaption {
 
 section {
     margin: 30px auto;
+    float: center;
 }
 section article {
     display: block;
-	float: left;
 	max-width: 250px;
 	margin: 0 1% 10px 1%;
 	cursor: pointer;
@@ -78,4 +78,13 @@ section article figure img{
     -ms-transition-duration: 0s;
     -o-transition-duration: 0s;
     transition-duration: 0s;
+}
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
 }
