@@ -4,7 +4,8 @@
 @import helper.twitterBootstrap._
 
 @main(Messages("playauthenticate.signup.title"),"signup") {
-    
+<div class="bg-content-auth">
+	<div class="container">    
   <div class="row">
     <div class="span6">
       <h1>@Messages("playauthenticate.signup.title")</h1>
@@ -42,6 +43,8 @@
         @_providerPartial(skipCurrent=false)
     </div>
 
+  </div>
+  </div>
   </div>
 
 }

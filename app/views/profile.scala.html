@@ -3,7 +3,8 @@
 @import com.feth.play.module.pa.views.html._
 
 @main(Messages("playauthenticate.profile.title"),"profile") {
-    
+    <div class="bg-content-auth">
+	<div class="container">
     <h1>@Messages("playauthenticate.profile.title")</h1>
     <p>
     Your name is @localUser.name and your email address is @localUser.email!
@@ -44,4 +45,6 @@
     	<li><a href="@routes.Account.changePassword">@Messages("playauthenticate.profile.password_change")</a></li>
     </ul>
     </p>
+    </div>
+    </div>
 }

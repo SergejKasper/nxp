@@ -32,6 +32,10 @@ public class Application extends Controller {
         return ok(index.render("NoiseXperience2.0"));
     }
 
+    
+    
+    //Authentification
+    
 	public static User getLocalUser(final Session session) {
 		final AuthUser currentAuthUser = PlayAuthenticate.getUser(session);
 		final User localUser = User.findByAuthUserIdentity(currentAuthUser);

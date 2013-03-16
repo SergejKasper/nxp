@@ -196,11 +196,8 @@ myEventModule
 myEventModule.directive('subnav', function($parse) {
 	return {
 		restrict : 'A',
-		replace : true,
-		scope : {
-			menupoints : '='
-		},
-		templateUrl : '/assets/components/subnav/subnav.html',
+		replace : false,
+		scope : true,
 		link : function postLink(scope, iElement, attrs) {
 			// console.log(scope.$position);
 			iElement.ready(function() {

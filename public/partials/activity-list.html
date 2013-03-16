@@ -1,15 +1,19 @@
 <div class="row-1">
 	<section ng-controller="ActivityListController">
-		<div class="container subnav-container">
+		<div subnav menupoints="subnav.menupoints">
+		 <div class="container subnav-container">
 			<div class="inverse-subnav" id="subnav">
 				<ul class="nav nav-pills">
 					<li ng-repeat="menupoint in subnav.menupoints" class="pull-left"><a href="{{menupoint.url}}">{{menupoint.name}}</a></li>
-					<li class="navbar-search pull-right" style="margin-right: 10px;"><input type="text" class="search-query " placeholder="Suche im Partyprogramm!" ng-model="narrowprogram"></li>
+					<li class="navbar-search pull-right" style="margin-right: 10px;"><input type="text" class="search-query" style="height: 60%" placeholder="Suche im Partyprogramm!" ng-model="narrowprogram"></li>
 				</ul>
 			</div>
+		</div>
+	<div class="top-wrapper">
 		<div class="span12">
 			<div isotope='activities' item-asc='sortAsc' item-filter = 'narrowprogram'></div>
 		</div>
+	</div>
 </div>
 	</section>
 </div>
