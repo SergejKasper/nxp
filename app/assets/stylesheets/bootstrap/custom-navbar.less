@@ -12,6 +12,8 @@
 	background-color: @grayDark;
 	min-height: 45px;
 	margin-bottom: 0px;
+	left: auto;
+	right: auto;
 }
 
 .subnav-container {
@@ -31,11 +33,16 @@
 @media ( max-width : @navbarCollapseWidth) {
 	.subnav-fixed {
 		top: 0px !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.subnav-fixed {
+		width: 100%;
 		left: 0px;
 		right: 0px;
 	}
 }
-
 .nav-container {
 	padding: 0px 5px;
 }

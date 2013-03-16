@@ -3,6 +3,14 @@
 
 # --- !Ups
 
+create table activity (
+  id                        varchar(255) not null,
+  title                     varchar(255),
+  description               varchar(255),
+  path                      varchar(255),
+  constraint pk_activity primary key (id))
+;
+
 create table linked_account (
   id                        bigint not null,
   user_id                   bigint,
@@ -59,6 +67,8 @@ create table users_user_permission (
   user_permission_id             bigint not null,
   constraint pk_users_user_permission primary key (users_id, user_permission_id))
 ;
+create sequence activity_seq;
+
 create sequence linked_account_seq;
 
 create sequence security_role_seq;
@@ -88,6 +98,8 @@ alter table users_user_permission add constraint fk_users_user_permission_user_0
 
 SET REFERENTIAL_INTEGRITY FALSE;
 
+drop table if exists activity;
+
 drop table if exists linked_account;
 
 drop table if exists security_role;
@@ -103,6 +115,8 @@ drop table if exists users_user_permission;
 drop table if exists user_permission;
 
 SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists activity_seq;
 
 drop sequence if exists linked_account_seq;
 

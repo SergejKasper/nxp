@@ -2,14 +2,17 @@ package controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
+import models.Activity;
 import models.User;
 import play.Routes;
 import play.data.Form;
+import play.db.ebean.Model;
+import play.libs.Json;
 import play.mvc.*;
 import play.mvc.Http.Response;
 import play.mvc.Http.Session;
-import play.mvc.Result;
 import providers.MyUsernamePasswordAuthProvider;
 import providers.MyUsernamePasswordAuthProvider.MyLogin;
 import providers.MyUsernamePasswordAuthProvider.MySignup;
@@ -33,7 +36,16 @@ public class Application extends Controller {
     }
 
     
+    public static Result addActivity() {
+    	Activity activity = Form.form(Activity.class).bindFromRequest().get();
+    	activity.save();
+    	return redirect(routes.Application.index());
+    }
     
+    public static Result getActivities(){
+    	List<Activity> activities = new Model.Finder(String.class, Activity.class).all();
+    	return ok(Json.toJson(activities));
+    }
     //Authentification
     
 	public static User getLocalUser(final Session session) {
@@ -54,6 +66,8 @@ public class Application extends Controller {
 		return ok(profile.render(localUser));
 	}
 
+	//Authentification
+	
 	public static Result login() {
 		return ok(login.render(MyUsernamePasswordAuthProvider.LOGIN_FORM));
 	}

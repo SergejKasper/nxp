@@ -31,7 +31,7 @@ function IndexPageController($scope) {
 }
 
 function ActivityListController($scope, $http) {
-	$scope.url = '/assets/json/activities.json';
+	$scope.url = '/getActivities';
 	$scope.activities = [];
 	$scope.fetchRecipients = function(){
 		$http.get($scope.url).then(function(result) {
