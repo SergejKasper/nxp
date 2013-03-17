@@ -1,4 +1,4 @@
-.navbar-fixed-top,.navbar-fixed-bottom, .subnav {
+.navbar-fixed-top,.navbar-fixed-bottom{
 	width: inherit;
 	margin: 0 auto;
 }
@@ -8,26 +8,34 @@
 }
 
 #subnav {
-	padding: 0px 0px;
+	padding: 5px 0px;
 	background-color: @grayDark;
-	min-height: 45px;
-	margin-bottom: 0px;
+	height: 55px;
+	margin: 0px;
 	left: auto;
 	right: auto;
 }
 
 .subnav-container {
-	height: 55px;
+	height: 65px;
 	margin-bottom: 10px;
 	display: block;
+	left: auto;
+	right: auto;
 }
 
 .subnav-fixed {
-	width: inherit;
+	width: auto;
 	top: 0px;
 	z-index: 1020;
 	float: none !important;
 	position: fixed;
+}
+
+.navbar-search {
+	width: 100%;
+	max-width: 350px;
+	margin: 0 20px;	
 }
 
 @media ( max-width : @navbarCollapseWidth) {
@@ -36,15 +44,29 @@
 	}
 }
 
-@media (max-width: 767px) {
-	.subnav-fixed {
-		width: 100%;
+@media (max-width: 310px) {
+	
+	.navbar-search input{
+	width: 45%;
+	max-width: 300px;
+	margin: 0;
+	}
+	
+	.navbar-search {
+		width: 70%;
 		left: 0px;
 		right: 0px;
+		margin:0px;
+		
 	}
-}
-.nav-container {
-	padding: 0px 5px;
+	
+	.subnav-fixed {
+	width: 100%;
+	top: 0px;
+	z-index: 1020;
+	float: none !important;
+	position: fixed;
+	}
 }
 
 }

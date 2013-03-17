@@ -4,7 +4,7 @@
 # --- !Ups
 
 create table activity (
-  id                        varchar(255) not null,
+  id                        bigint not null,
   title                     varchar(255),
   description               varchar(255),
   path                      varchar(255),

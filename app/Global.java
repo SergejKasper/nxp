@@ -1,7 +1,11 @@
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
+import models.Activity;
 import models.SecurityRole;
 
+import com.avaje.ebean.Ebean;
 import com.feth.play.module.pa.PlayAuthenticate;
 import com.feth.play.module.pa.PlayAuthenticate.Resolver;
 import com.feth.play.module.pa.exceptions.AccessDeniedException;
@@ -11,6 +15,7 @@ import controllers.routes;
 
 import play.Application;
 import play.GlobalSettings;
+import play.libs.Yaml;
 import play.mvc.Call;
 
 public class Global extends GlobalSettings {
@@ -79,5 +84,22 @@ public class Global extends GlobalSettings {
 				role.save();
 			}
 		}
+		if(Ebean.find(Activity.class).findRowCount() == 0) {
+            
+            Map<String,List<Object>> all = (Map<String,List<Object>>)Yaml.load("initial-data.yml");
+
+            // Insert users first
+            Ebean.save(all.get("activities"));
+
+            // Insert projects
+            //Ebean.save(all.get("projects"));
+            //for(Object project: all.get("projects")) {
+                // Insert the project/user relation
+                //Ebean.saveManyToManyAssociations(project, "members");
+            //}
+
+            // Insert tasks
+            //Ebean.save(all.get("tasks"));            
+        }
 	}
 }

@@ -10,10 +10,9 @@ function IndexPageController($scope) {
 		}, {
 			"name" : "Meine Events",
 			"url" : "#"
-		},
-		{
-			"name" : "Community Events",
-			"url" : "#"
+		}, {
+			"name" : "Neues Event",
+			"url" : "#/newActivity"
 		}
 		],
 		"dropdown" : []
@@ -30,6 +29,9 @@ function IndexPageController($scope) {
 	];
 }
 
+function NewActivityController() {
+}
+
 function ActivityListController($scope, $http) {
 	$scope.url = '/getActivities';
 	$scope.activities = [];
@@ -41,6 +43,7 @@ function ActivityListController($scope, $http) {
 	$scope.fetchRecipients();
     $scope.sortAsc = true; 
     $scope.update = function() { $scope.sortAsc = !$scope.sortAsc; };
+    $scope.isotopeItemFilter = [];
 
 }
 

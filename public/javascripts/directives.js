@@ -76,8 +76,7 @@ function appendListener($items) {
 	function resetStyle($description, delay) {
 		var stickytime = setTimeout(function() {
 			$description.css({
-				position : 'absolute',
-				width : '100%'
+				position : 'absolute'
 			});
 		}, delay || 0);
 		$description.parent().data('stickytime', stickytime);
@@ -98,7 +97,8 @@ myEventModule
 							return {
 								itemSelector : 'article',
 								filter : '*',
-								layoutMode : 'masonry',
+								resizable : true,	
+								resizesContainer: true,
 								getSortData : {
 									title : function(e) {
 										return e.find('h2').text();
@@ -119,7 +119,7 @@ myEventModule
 										articles
 												.push('<article class="isotope-item-frame '
 														+ item.title
-														+ '"><figure><img src="'
+														+ '"><figure><img src="assets/components/thumbnails/images/'
 														+ item.path
 														+ '"/><figcaption><a href="#"><h2 id="'
 														+ item.title
@@ -197,32 +197,35 @@ myEventModule.directive('subnav', function($parse) {
 	return {
 		restrict : 'A',
 		replace : false,
-		scope : true,
+		scope : {
+			isotopeItemFilter : '=isotopeItemFilter',
+			menupoints : '=menupoints'
+		},
 		link : function postLink(scope, iElement, attrs) {
 			// console.log(scope.$position);
 			iElement.ready(function() {
-				$(document).scroll(
-						function() {
-							// If has not activated (has no attribute "data-top"
-							setTimeout(function() {
+				$(document).scroll(navAdjust);
+				function navAdjust(){
+					// If has not activated (has no attribute "data-top"
+					setTimeout(function() {
 
-								if (!$('#subnav').attr('data-top')) {
-									// If already fixed, then do nothing
-									if ($('#subnav').hasClass('subnav-fixed'))
-										return;
-									// Remember top position
-									var offset = $('#subnav').offset()
-									$('#subnav').attr('data-top', offset.top);
-								}
+						if (!$('#subnav').attr('data-top')) {
+							// If already fixed, then do nothing
+							if ($('#subnav').hasClass('subnav-fixed'))
+								return;
+							// Remember top position
+							var offset = $('#subnav').offset()
+							$('#subnav').attr('data-top', offset.top);
+						}
 
-								if ($('#subnav').attr('data-top')
-										- $('#subnav').outerHeight() <= $(this)
-										.scrollTop())
-									$('#subnav').addClass('subnav-fixed');
-								else
-									$('#subnav').removeClass('subnav-fixed');
-							});
-						});
+						if ($('#subnav').attr('data-top')
+								- $('#subnav').outerHeight() <= $(this)
+								.scrollTop())
+							$('#subnav').addClass('subnav-fixed');
+						else
+							$('#subnav').removeClass('subnav-fixed');
+					});
+				}
 			});
 		}
 	};
