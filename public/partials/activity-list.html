@@ -10,11 +10,13 @@
 										Filter <span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
-										<li ng-repeat="menupoint in menupoints" class="pull-left"><a href="{{menupoint.url}}">{{menupoint.name}}</a></li>
+										<li ng-repeat="menupoint in menupoints"><a href="{{menupoint.url}}">{{menupoint.name}}</a></li>
 									</ul>
 								</div>
 								<input type="text" class="search-query" placeholder="Suche im Partyprogramm!" ng-model="isotopeItemFilter">
+								<a href="#/newActivity" class="btn">Neue Activity!</a>
 							</div>
+							<input type="text" class="search-query" placeholder="Suche im Partyprogramm!" ng-model="isotopeItemFilter">
 						</div>
 				</div>
 			</div>

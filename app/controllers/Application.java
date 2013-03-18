@@ -24,6 +24,7 @@ import be.objectify.deadbolt.java.actions.Restrict;
 import com.feth.play.module.pa.PlayAuthenticate;
 import com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider;
 import com.feth.play.module.pa.user.AuthUser;
+import com.avaje.ebean.EbeanServer;
 
 public class Application extends Controller {
   
@@ -46,6 +47,12 @@ public class Application extends Controller {
     	List<Activity> activities = new Model.Finder(String.class, Activity.class).all();
     	return ok(Json.toJson(activities));
     }
+    
+    public static Result getActivity(Long id) {
+    	  Activity activity = Activity.get(id);
+    	  return ok(Json.toJson(activity));
+    	}
+    
     //Authentification
     
 	public static User getLocalUser(final Session session) {

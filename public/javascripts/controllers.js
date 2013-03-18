@@ -44,9 +44,14 @@ function ActivityListController($scope, $http) {
     $scope.sortAsc = true; 
     $scope.update = function() { $scope.sortAsc = !$scope.sortAsc; };
     $scope.isotopeItemFilter = [];
-
 }
-
-function DetailController($scope) {
-
+function ActivityDetailController($scope, $routeParams, $http) {
+	$scope.url = '/getActivity/' + $routeParams.activityId + '/get';
+	$scope.item = [];
+	$scope.fetchRecipients = function(){
+		$http.get($scope.url).then(function(result) {
+			$scope.item = result.data;
+		});
+	}
+	$scope.fetchRecipients();
 }

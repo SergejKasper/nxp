@@ -121,7 +121,7 @@ myEventModule
 														+ item.title
 														+ '"><figure><img src="assets/components/thumbnails/images/'
 														+ item.path
-														+ '"/><figcaption><a href="#"><h2 id="'
+														+ '"/><figcaption><a href="#/getActivity/'+ item.id +'"><h2 id="'
 														+ item.title
 														+ '">'
 														+ item.title

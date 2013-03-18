@@ -10,7 +10,7 @@
 #subnav {
 	padding: 5px 0px;
 	background-color: @grayDark;
-	height: 55px;
+	min-height: 55px;
 	margin: 0px;
 	left: auto;
 	right: auto;
@@ -18,14 +18,11 @@
 
 .subnav-container {
 	height: 65px;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 	display: block;
-	left: auto;
-	right: auto;
 }
 
 .subnav-fixed {
-	width: auto;
 	top: 0px;
 	z-index: 1020;
 	float: none !important;
@@ -33,20 +30,31 @@
 }
 
 .navbar-search {
-	width: 100%;
-	max-width: 350px;
-	margin: 0 20px;	
+	width: inherit;
+	max-width: 370px;
+	margin: 0 auto;	
+	padding: 5px;
 }
+
+.navbar-search .search-query {
+	max-width: 150px;
+}
+
+	.inverse-subnav > .search-query{
+	display: none;
+	}
 
 @media ( max-width : @navbarCollapseWidth) {
 	.subnav-fixed {
 		top: 0px !important;
+		width: 370px;
 	}
 }
 
-@media (max-width: 310px) {
+@media (max-width: 370px) {
 	
 	.navbar-search input{
+	display: none;
 	width: 45%;
 	max-width: 300px;
 	margin: 0;
@@ -57,7 +65,6 @@
 		left: 0px;
 		right: 0px;
 		margin:0px;
-		
 	}
 	
 	.subnav-fixed {
@@ -67,6 +74,24 @@
 	float: none !important;
 	position: fixed;
 	}
+	
+	.inverse-subnav > .search-query{
+	display: block;
+	max-width: 150px;
+	width: inherit;
+	margin: 0px auto;
+	}
+	
+	.inverse-subnav > .navbar-search{
+	text-align: center;
+	display: block;
+	width: inherit;
+	margin: 5px auto;
+	left: auto;
+	right: auto;
+	float: none;
+	}
+	
 }
 
 }
