@@ -1,0 +1,44 @@
+<div class="row-1">
+	<section ng-controller="NewActivityController">
+		<div class="fluid-row">
+			<form method="post" action="/addActivity" method="post">
+				<ul class="thumbnails" style="margin: 10px;">
+					<li class="span4">
+						<div class="thumbnail">
+							<h4>Titel</h4>
+							<p>
+								<input type="text" name="title" placeholder="neue Activity" />
+							</p>
+							<h4>Beschreibung</h4>
+							<p>
+								<textarea rows="2" type="text" name="description" placeholder="Beschreibung"> </textarea>
+							</p>
+						</div>
+					</li>
+					<li class="span4">
+						<div class="thumbnail">
+							<h3>Activitytyp</h3>
+							<p>
+								<select name="path" multiple="multiple">
+									<option value="4.jpg">Anfahrt</option>
+
+									<option value="6.jpg">Partyevent</option>
+									<option value="7.jpg">Rahmenprogram</option>
+									<option value="8.jpg">Afterparty</option>
+									<option value="9.jpg">Sonstiges</option>
+								</select>
+							</p>
+						</div>
+					</li>
+					<li class="span4">
+						<div class="thumbnail">
+							<h3>LOS!</h3>
+							<p>Wir prüfen deine Activity und fügen sie innerhalb der nächsten 48 Stunden hinzu. Falls nötig melden wir uns bei dir.</p>
+							<p><input type="submit" value="neue Activity" /></p>
+						</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</section>
+</div>

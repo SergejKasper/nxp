@@ -1,0 +1,29 @@
+
+# Activities
+
+activities:
+
+- !!models.Activity
+ title: Dance Battle
+ description: Legendary Awesomeness ahead!
+ path: 1.jpg
+
+- !!models.Activity
+ title: Wer zuerst kommt...
+ description: Some awesome Party Activity!
+ path: 2.jpg
+
+- !!models.Activity
+ title: Songvote
+ description: Even more awesome Party Activity!
+ path: 3.jpg
+
+- !!models.Activity
+ title: Partyshots
+ description: The most awesome Party Activity since genesis!
+ path: 4.jpg
+
+- !!models.Activity
+ title: Poker warmup
+ description: ..And the party goes on!
+ path: 5.jpg
