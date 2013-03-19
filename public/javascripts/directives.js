@@ -121,11 +121,17 @@ myEventModule
 														+ item.title
 														+ '"><figure><img src="assets/components/thumbnails/images/'
 														+ item.path
-														+ '"/><figcaption><a href="#/getActivity/'+ item.id +'"><h2 id="'
+														+ '"/><figcaption><h3 id="'
 														+ item.title
 														+ '">'
+														+ '<a href="#/getActivity/'+ item.id +'">'
 														+ item.title
-														+ '</h2></a><br>'
+														+ '</a>'
+														+ '<span class="actions pull-right">'
+														+ '<a href="#/getActivity/'+ item.id +'"><i class="icon-fullscreen"></i></a>'
+														+ '<a href="#/likeActivity/'+ item.id +'"><i class="icon-heart"></i></a>'
+														+ '<a href="#/goActivity/'+ item.id +'"><i class="icon-ok"></i></a>'
+														+ '</span></h3>'
 														+ item.description
 														+ '</figcaption></figure></article>');
 										i++;
