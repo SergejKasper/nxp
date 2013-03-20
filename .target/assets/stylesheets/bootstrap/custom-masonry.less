@@ -1,13 +1,12 @@
-
 section article figure figcaption {
 	position: absolute;
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 400;
 	left: auto;
 	width: 100%;
-	height: 60px;
-	bottom: -40px;
-	padding: 20px;
+	height: 80px;
+	bottom: -47px;
+	padding: 0px;
 	color: #ddd;
 	background: #18bcbc;
 	-webkit-font-smoothing: antialiased;
@@ -16,6 +15,14 @@ section article figure figcaption {
 	-ms-transition: bottom 0.2s ease-in-out;
 	-o-transition: bottom 0.2s ease-in-out;
 	transition: bottom 0.2s ease-in-out;
+}
+
+section article figure figcaption h3{
+	padding-right: 5px;
+	padding-left: 5px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	
 }
 
 section article figure figcaption a {
@@ -30,8 +37,13 @@ section article figure:hover figcaption {
 	bottom: 0px;
 }
 
+section article figcaption .actions i{
+	margin: 0px 5px;
+}
+
 section {
-    margin: 30px auto;
+    margin: 0px auto 0px auto;
+    
     float: center;
 }
 section article {
@@ -78,4 +90,13 @@ section article figure img{
     -ms-transition-duration: 0s;
     -o-transition-duration: 0s;
     transition-duration: 0s;
+}
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
 }
