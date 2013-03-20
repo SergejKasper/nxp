@@ -4,9 +4,18 @@
 			<div class="span2">
 						<img src="assets/components/thumbnails/images/{{item.path}}" />
 			</div>
-			<div class="span2 thumbnail">
+			<div class="span3 thumbnail">
 			<h2 id="{{item.title}}">{{item.title}}</h2>
 			<br> {{item.description}}
+			</div>
+			<div class="span2 thumbnail">
+				<h2>Countdown: </h2>
+				<br> Action beginnt in
+				{{counter}} 
+			</div>
+			<div class="span5 thumbnail">
+				<h2>teilnehmer</h2>
+				<br> {{item.participents}}
 			</div>
 		</div>
 	</section>
