@@ -1,4 +1,4 @@
-.navbar-fixed-top,.navbar-fixed-bottom{
+.navbar-fixed-top,.navbar-fixed-bottom {
 	width: inherit;
 	margin: 0 auto;
 }
@@ -32,66 +32,78 @@
 .navbar-search {
 	width: inherit;
 	max-width: 370px;
-	margin: 0 auto;	
+	margin: 0 auto;
 	padding: 5px;
 }
 
-.navbar-search .search-query {
-	max-width: 150px;
+.inverse-subnav>.search-query {
+	float: right;
+	display: block;
+	padding: 5px;
+	margin: 5px;
 }
 
-	.inverse-subnav > .search-query{
-	display: none;
-	}
+.audio-wrapper {
+	display: block;
+	width: inherit;
+	max-width: 250px;
+	margin: 0 auto;
+	padding: 0;
+}
 
 @media ( max-width : @navbarCollapseWidth) {
 	.subnav-fixed {
 		top: 0px !important;
 		width: 370px;
 	}
+	.audio-wrapper {
+		max-width: 195px;
+	}
+	.subnav-container {
+	margin-bottom: 50px;
+	}
 }
 
-@media (max-width: 370px) {
-	
-	.navbar-search input{
-	display: none;
-	width: 45%;
-	max-width: 300px;
-	margin: 0;
+
+@media only screen and ( max-width: 36.5em ){
+	.audio-wrapper {
+		position: fixed;
+		max-width: none;
+		width: 100%;
+		height: auto;
+		bottom: 0px;
+		z-index: 100000;
 	}
-	
+}
+
+
+@media ( max-width : 370px) {
 	.navbar-search {
 		width: 70%;
 		left: 0px;
 		right: 0px;
-		margin:0px;
+		margin: 0px;
 	}
-	
 	.subnav-fixed {
-	width: 100%;
-	top: 0px;
-	z-index: 1020;
-	float: none !important;
-	position: fixed;
+		width: 100%;
+		top: 0px;
+		z-index: 1020;
+		float: none !important;
+		position: fixed;
 	}
-	
-	.inverse-subnav > .search-query{
-	display: block;
-	max-width: 150px;
-	width: inherit;
-	margin: 0px auto;
+	.inverse-subnav>.search-query {
+		float: inherit;
+		max-width: 150px;
+		width: inherit;
+		margin: 0px auto;
 	}
-	
-	.inverse-subnav > .navbar-search{
-	text-align: center;
-	display: block;
-	width: inherit;
-	margin: 5px auto;
-	left: auto;
-	right: auto;
-	float: none;
+	.inverse-subnav>.navbar-search {
+		text-align: center;
+		display: block;
+		width: inherit;
+		margin: 5px auto;
+		left: auto;
+		right: auto;
+		float: none;
 	}
-	
-}
-
 }

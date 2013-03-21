@@ -162,7 +162,7 @@ myEventModule
 								if (val) {
 									elem.children(":not(.blank)").filter(
 											function() {
-												return $(this).find("h2")
+												return $(this).find("h3")
 														.text().toLowerCase()
 														.indexOf(val) === -1;
 											}).addClass("filter-out");
@@ -257,4 +257,20 @@ myEventModule.directive('slider', function($parse) {
 			});
 		}
 	};
-})
+});
+
+myEventModule.directive('playerelement', function($parse, $timeout) {
+	return{
+		restrict: 'AC',
+		scope: true,
+		replace: false,
+		template: '<audio preload="auto" controls loop>'
+			+'<source src="assets/media/Barthezz-Infected.mp3"/>'
+			+'<source src="assets/media/Barthezz-Infected.ogg"/>'
+			+'</audio>',
+		link: function(scope, elem, attrs) {
+				elem.children('audio').audioPlayer();
+		}
+	};
+
+});
