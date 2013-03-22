@@ -264,12 +264,14 @@ myEventModule.directive('playerelement', function($parse, $timeout) {
 		restrict: 'AC',
 		scope: true,
 		replace: false,
-		template: '<audio preload="auto" controls loop>'
+		template: '<audio preload="none" controls loop>'
 			+'<source src="assets/media/Barthezz-Infected.mp3"/>'
 			+'<source src="assets/media/Barthezz-Infected.ogg"/>'
 			+'</audio>',
 		link: function(scope, elem, attrs) {
+			elem.ready(function() {
 				elem.children('audio').audioPlayer();
+			});
 		}
 	};
 
