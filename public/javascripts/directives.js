@@ -97,8 +97,8 @@ myEventModule
 							return {
 								itemSelector : 'article',
 								filter : '*',
-								resizable : true,	
-								resizesContainer: true,
+								resizable : true,
+								resizesContainer : true,
 								getSortData : {
 									title : function(e) {
 										return e.find('h2').text();
@@ -124,13 +124,21 @@ myEventModule
 														+ '"/><figcaption><h3 id="'
 														+ item.title
 														+ '">'
-														+ '<a href="#/getActivity/'+ item.id +'">'
+														+ '<a href="#/getActivity/'
+														+ item.id
+														+ '">'
 														+ item.title
 														+ '</a>'
 														+ '<span class="actions pull-right">'
-														+ '<a href="#/getActivity/'+ item.id +'"><i class="icon-fullscreen"></i></a>'
-														+ '<a href="#/likeActivity/'+ item.id +'"><i class="icon-heart"></i></a>'
-														+ '<a href="#/goActivity/'+ item.id +'"><i class="icon-ok"></i></a>'
+														+ '<a href="#/getActivity/'
+														+ item.id
+														+ '"><i class="icon-fullscreen"></i></a>'
+														+ '<a href="#/likeActivity/'
+														+ item.id
+														+ '"><i class="icon-heart"></i></a>'
+														+ '<a href="#/goActivity/'
+														+ item.id
+														+ '"><i class="icon-ok"></i></a>'
 														+ '</span></h3>'
 														+ item.description
 														+ '</figcaption></figure></article>');
@@ -211,7 +219,7 @@ myEventModule.directive('subnav', function($parse) {
 			// console.log(scope.$position);
 			iElement.ready(function() {
 				$(document).scroll(navAdjust);
-				function navAdjust(){
+				function navAdjust() {
 					// If has not activated (has no attribute "data-top"
 					setTimeout(function() {
 
@@ -260,17 +268,17 @@ myEventModule.directive('slider', function($parse) {
 });
 
 myEventModule.directive('playerelement', function($parse, $timeout) {
-	return{
-		restrict: 'AC',
-		scope: true,
-		replace: false,
-		template: '<audio preload="none" controls loop>'
-			+'<source src="assets/media/Barthezz-Infected.mp3"/>'
-			+'<source src="assets/media/Barthezz-Infected.ogg"/>'
-			+'</audio>',
-		link: function(scope, elem, attrs) {
+	return {
+		restrict : 'AC',
+		scope : true,
+		replace : false,
+		template : '<audio preload="none" controls loop>'
+				+ '<source src="assets/media/Barthezz-Infected.mp3"/>'
+				+ '<source src="assets/media/Barthezz-Infected.ogg"/>'
+				+ '</audio>',
+		link : function(scope, elem, attrs) {
 			elem.ready(function() {
-				elem.children('audio').audioPlayer();
+				window.onload = elem.children('audio').audioPlayer();
 			});
 		}
 	};
