@@ -112,7 +112,7 @@ mymodule
 
 					return {
 						restrict : 'A',
-						template : '<section class="isotope-container-section"><div class="grid clearfix" id="grid"></div></section>',
+						template : '<section class="isotope-container-section"></section>',
 						replace : true,
 						scope : {
 							list : '=isotope',
