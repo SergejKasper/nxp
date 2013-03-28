@@ -4,18 +4,30 @@
 mymodule
 		.directive(
 				'isotope',
-				function() {
-
+				function($log) {
+					
+					var columns = 1;
+					
 					var linker = function(scope, elem, attrs) {
-
+						
+						function setColumns() {
+							  if($(window).width() <= 1150) {
+								  return 2;
+							    $log.log(columns);
+							  } else {
+								  return 4;
+							    $log.log(columns);
+							  }
+							}
+						
 						var setupDone = false;
-
+						
 						var setObj = function(asc) {
 							return {
 								itemSelector : 'article',
 								filter : '*',
-								resizable : true,
-								resizesContainer : true,
+								resizable : false,
+								masonry: { columnWidth: $('.isotope-container-section').width() / columns },
 								getSortData : {
 									title : function(e) {
 										return e.find('h2').text();
@@ -67,9 +79,23 @@ mymodule
 								elem.isotope(setObj(scope.sortAsc,
 										scope.itemFilter));
 								setupDone = true;
+								
+								 $(window).smartresize(function(){
+									    // check if columns has changed
+									    var currentColumns = columns;
+									    columns = setColumns();
+									    if ( currentColumns !== columns ) {
+									      // set new column count
+									    	// apply width to container manually, then trigger relayout
+									    	 $log.log('relayout:' + columns);
+									    	 elem.isotope('reLayout');
+									    }
+									    
+									  }).smartresize();
+								
 							});
 						};
-
+						
 						scope.$watch('list', function(newval, oldval) {
 							if (newval.length > 0)
 								setup();
@@ -100,12 +126,6 @@ mymodule
 									});
 								}
 							}
-						});
-
-						window.onload = setTimeout(function() {
-							if (setupDone)
-								elem.isotope(setObj(scope.sortAsc,
-										scope.itemFilter));
 						});
 
 					}
