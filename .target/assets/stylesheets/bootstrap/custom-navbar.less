@@ -1,10 +1,19 @@
-.navbar-fixed-top,.navbar-fixed-bottom{
-	width: inherit;
-	margin: 0 auto;
+/* MAIN NAV */
+
+#main-nav{
+	.navbar;
+	.navbar-fixed-top;	
+}
+
+#main-nav > div{
+	.navbar-inner;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
 }
 
 .navbar-fixed-top,.navbar-fixed-bottom {
-	margin-bottom: 0 !important;
+	width: inherit;
+	margin: 0px auto 0px auto !important;
 }
 
 #subnav {
@@ -17,7 +26,8 @@
 }
 
 .subnav-container {
-	height: 65px;
+	height: 140px;
+	width: 370px;
 	margin-bottom: 30px;
 	display: block;
 }
@@ -31,17 +41,30 @@
 
 .navbar-search {
 	width: inherit;
-	max-width: 370px;
-	margin: 0 auto;	
+	max-width: 180px;
+	margin: 0 auto;
 	padding: 5px;
 }
 
-.navbar-search .search-query {
-	max-width: 150px;
+.inverse-subnav>.search-query {
+	float: right;
+	display: block;
+	padding: 5px;
+	margin: 5px;
 }
 
-	.inverse-subnav > .search-query{
-	display: none;
+.audio-wrapper {
+	display: block;
+	width: inherit;
+	max-width: 250px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+	.audio-wrapper {
+		position: relative;
+		width: 90%;
+		height: auto;
 	}
 
 @media ( max-width : @navbarCollapseWidth) {
@@ -49,49 +72,58 @@
 		top: 0px !important;
 		width: 370px;
 	}
+	
+	.subnav-container {
+	margin-bottom: 50px;
+	}
 }
 
-@media (max-width: 370px) {
-	
-	.navbar-search input{
-	display: none;
-	width: 45%;
-	max-width: 300px;
-	margin: 0;
+@media only screen and (max-width: 32.5em)
+{
+	body{
+		-webkit-box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, .5 ); /* 150 */
+		-moz-box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, 5 ); /* 150 */
+		box-shadow: inset 0 0 9.375em rgba( 0, 0, 0, .5 ); /* 150 */
 	}
-	
+	.audio-wrapper{
+		width: 100%;
+		height: auto;
+	}
+}
+
+
+@media ( max-width : 370px) {
 	.navbar-search {
 		width: 70%;
 		left: 0px;
 		right: 0px;
-		margin:0px;
+		margin: 0px;
+	}
+	
+	.subnav-container {
+	width: 100%;
 	}
 	
 	.subnav-fixed {
-	width: 100%;
-	top: 0px;
-	z-index: 1020;
-	float: none !important;
-	position: fixed;
+		width: 100%;
+		top: 0px;
+		z-index: 1020;
+		float: none !important;
+		position: fixed;
 	}
-	
-	.inverse-subnav > .search-query{
-	display: block;
-	max-width: 150px;
-	width: inherit;
-	margin: 0px auto;
+	.inverse-subnav>.search-query {
+		float: inherit;
+		max-width: 150px;
+		width: inherit;
+		margin: 0px auto;
 	}
-	
-	.inverse-subnav > .navbar-search{
-	text-align: center;
-	display: block;
-	width: inherit;
-	margin: 5px auto;
-	left: auto;
-	right: auto;
-	float: none;
+	.inverse-subnav>.navbar-search {
+		text-align: center;
+		display: block;
+		width: inherit;
+		margin: 5px auto;
+		left: auto;
+		right: auto;
+		float: none;
 	}
-	
-}
-
 }
