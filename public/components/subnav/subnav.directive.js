@@ -33,7 +33,7 @@ mymodule.directive('subnav', function($parse) {
 							$('#subnav').addClass('subnav-fixed');
 						else
 							$('#subnav').removeClass('subnav-fixed');
-					});
+					}, 100);
 				}
 			});
 		}
