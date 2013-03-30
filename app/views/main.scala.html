@@ -36,8 +36,7 @@
 <body >
 	<div class="container" id="nxp-content">
 	@_mainnavPartial(nav)
-			<div class="spinner" style="display:none;"><img src="@routes.Assets.at("img/spinner.gif")" /></div>
-			<div class="container">
+			<div id="container">
 				@if(flash.contains(Application.FLASH_ERROR_KEY)) {
 				<div class="alert alert-error">@flash().get(Application.FLASH_ERROR_KEY)</div>
 				} @if(flash.contains(Application.FLASH_MESSAGE_KEY)) {

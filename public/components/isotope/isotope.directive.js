@@ -102,6 +102,18 @@ mymodule
 							}
 						});
 
+						$(document).ready(function() {
+					        var myDivWidth = elem.width();
+					        var resizeFlag = false;
+					        $(window).resize(function () {
+					            if (elem.width() != myDivWidth) {
+					                //If the media query has been triggered
+					                myDivWidth = elem.width();
+					                elem.isotope('reLayout');
+					            }
+					        });
+					    });
+						
 						window.onload = setTimeout(function() {
 							if (setupDone)
 								elem.isotope(setObj(scope.sortAsc,
