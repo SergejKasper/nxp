@@ -44,6 +44,16 @@ function ActivityListController($scope, $http) {
     $scope.sortAsc = true; 
     $scope.update = function() { $scope.sortAsc = !$scope.sortAsc; };
     $scope.isotopeItemFilter = [];
+    
+    $scope.items = [
+	            	{"title" : "Die NXP ist zurück", "subtitle": "bald ist es soweit", "img": "1"},
+	            	{"title" : "Die letzte NXP war legendär", "subtitle": "wir setzen einen drauf", "img": "2"},
+	            	{"title" : "Du bist gefragt", "subtitle": "gestallte unsere Party", "img": "3"},
+	            	{"title" : "Deine Stimme zählt", "subtitle": "wähle die Getränke", "img": "1"},
+	            	{"title" : "Beteilige dich vor Ort", "subtitle": "wähle die Songs", "img": "2"},
+	            	{"title" : "Sei Teil des Rahmenprogramms", "subtitle": "Plane deinen Abend!", "img": "3"},
+	            	{"title" : "Interessiert?!", "subtitle": "Anmelden und Los!", "img": "1"}
+	            	];
 }
 function ActivityDetailController($scope, $routeParams, $http, $timeout) {
 	$scope.url = '/getActivity/' + $routeParams.activityId + '/get';
@@ -64,6 +74,6 @@ function ActivityDetailController($scope, $routeParams, $http, $timeout) {
         $scope.$apply();
         console.log($scope.countDown);
     }, 1000);  
-
+	
 	//timer
 }

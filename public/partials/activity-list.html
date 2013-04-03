@@ -21,7 +21,16 @@
 			<div playerelement class="audio-wrapper clear-both"></div>
 		<div class="row-fuid">
 			<div class="span12">
-				<div isotope='activities' item-asc='sortAsc' item-filter='isotopeItemFilter'></div>
+				<div class="main">
+				<ul id="og-grid" class="og-grid" >
+					<li ng-repeat="item in items | filter: isotopeItemFilter">
+						<a href="http://cargocollective.com/jaimemartinez/" data-largesrc="assets/components/thumbnailgrid/images/{{item.img}}.jpg" data-title="{{item.title}}" data-description="{{item.subtitle}}">
+							<img ng-src="assets/components/thumbnailgrid/images/thumbs/{{item.img}}.jpg" alt="img01"/>
+						</a>
+					</li>
+				</ul>
+				<p></p>
+			</div>
 			</div>
 		</div>
 	</section>
