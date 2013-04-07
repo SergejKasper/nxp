@@ -18,7 +18,9 @@
 // FORMS
 // -----------------------------------------------------
 
-
+#auth-message{
+	.container;
+}
 
 // TABLES
 // -----------------------------------------------------
@@ -38,13 +40,22 @@
 
 //MIXINS
 // the main container
+
+// 	background-image: url(/assets/img/bg.png);
 body{
 	padding-left: 80px;
 	padding-right: 80px;
+	background-repeat: repeat;
+	-webkit-font-smoothing: antialiased;
+	-webkit-box-shadow: inset 0 0 18.75em rgba(0,0,0,.5);
+	-moz-box-shadow: inset 0 0 18.75em rgba(0,0,0,.5);
+	box-shadow: inset 0 0 18.75em rgba(0,0,0,.5);
 }
+
 #nxp-content{
-	background-color: rgba(51, 53, 55, .5);
+	background: rgba(198, 64, 18, .6) url(/assets/img/noisebg.png);
 }
+
 
 .bg-content-auth{
 	margin: 40px 30px; width: auto;

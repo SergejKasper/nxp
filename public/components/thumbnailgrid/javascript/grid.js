@@ -379,13 +379,13 @@ Preview.prototype = {
 			this.$loading.show();
 			$( '<img/>' ).load( function() {
 				var $img = $( this );
-				if( $img.attr( 'ng-src' ) === self.$item.children('a').data( 'largesrc' ) ) {
+				if( $img.attr( 'src' ) === self.$item.children('a').data( 'largesrc' ) ) {
 					self.$loading.hide();
 					self.$fullimage.find( 'img' ).remove();
 					self.$largeImg = $img.fadeIn( 350 );
 					self.$fullimage.append( self.$largeImg );
 				}
-			} ).attr( 'ng-src', eldata.largesrc );	
+			} ).attr( 'src', eldata.largesrc );	
 		}
 
 	},

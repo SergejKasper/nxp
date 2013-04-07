@@ -1,4 +1,4 @@
-section article figure figcaption {
+section.isotope-container-section article figure figcaption {
 	position: absolute;
 	font-size: 15px;
 	font-weight: 400;
@@ -8,7 +8,8 @@ section article figure figcaption {
 	bottom: -47px;
 	padding: 0px;
 	color: #ddd;
-	background: #18bcbc;
+	background: #33b5e5;
+	
 	-webkit-font-smoothing: antialiased;
 	-webkit-transition: bottom 0.2s ease;
 	-moz-transition: bottom 0.2s ease-in-out;
@@ -16,8 +17,7 @@ section article figure figcaption {
 	-o-transition: bottom 0.2s ease-in-out;
 	transition: bottom 0.2s ease-in-out;
 }
-
-section article figure figcaption h3{
+section.isotope-container-section  article figure figcaption h3{
 	padding-right: 5px;
 	padding-left: 5px;
 	padding-bottom: 0px;
@@ -25,50 +25,100 @@ section article figure figcaption h3{
 	
 }
 
-section article figure figcaption a {
+section.isotope-container-section  article figure figcaption a {
 	color: #fff;
 }
 
-section article figure figcaption a:hover {
+section.isotope-container-section  article figure figcaption a:hover {
 	color: #ffd468;
 }
 
-section article figure:hover figcaption {
+section.isotope-container-section  article figure:hover figcaption {
 	bottom: 0px;
 }
 
-section article figcaption .actions i{
-	margin: 0px 5px;
+section.isotope-container-section  article figcaption .actions i{
+	margin: 5px;
 }
 
-section {
-    margin: 0px auto 0px auto;
-    
+section.isotope-container-section  article figcaption .actions i:hover {
+	background-color: #FFD700;
+	border-style: 30%;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+* > section.isotope-container-section{
+	width: 1128px;
+	margin: 0px auto;
+}
+
+section.isotope-container-section  { 
     float: center;
 }
-section article {
+section.isotope-container-section  article {
     display: block;
-	max-width: 250px;
-	margin: 0 1% 10px 1%;
+	width: 330px;
+	margin: 0 2% 33px 2%;
 	cursor: pointer;
 	overflow: hidden;
 }
+
+@media (max-width: 1200px) {
+
+	* > section.isotope-container-section{
+		width: 722px;
+	}
+
+}
+
+@media only screen and (max-width: 771px){
+	
+	* > section.isotope-container-section{
+	width: 640px;
+	}
+	
+	section.isotope-container-section  article {
+    display: block;
+	width: 200px;
+	margin: 0 1% 33px 1%;
+	cursor: pointer;
+	overflow: hidden;
+	}
+}
+
+@media only screen and (max-width: 639px){
+	
+	* > section.isotope-container-section{
+	width: 419px;
+	}
+}
+
+@media only screen and (max-width: 418px){
+
+	* > section.isotope-container-section{
+	width: 205px;
+	}
+}
+
 figure{
 	display: block;
 	margin: 0px;
 }
-section article figure img{
+section.isotope-container-section  article figure img{
 	display: block;
 }
 
 .isotope, .isotope .isotope-item {
     /* change duration value to whatever you like */
-    -webkit-transition-duration: 0.8s;
-    -moz-transition-duration: 0.8s;
-    -ms-transition-duration: 0.8s;
-    -o-transition-duration: 0.8s;
-    transition-duration: 0.8s;
+    -webkit-transition-duration: 0.6s;
+    -moz-transition-duration: 0.6s;
+    -ms-transition-duration: 0.6s;
+    -o-transition-duration: 0.6s;
+    transition-duration: 0.6s;
 }
+
 .isotope {
     -webkit-transition-property: height, width;
     -moz-transition-property: height, width;
