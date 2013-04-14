@@ -328,3 +328,22 @@
 	-o-transition: color .25s ease, background-color .25s ease, opacity .5s ease;
 	transition: color .25s ease, background-color .25s ease, opacity .5s ease;
 }
+
+@media only screen and (max-width: 32.5em)
+{
+	.audioplayer-time-duration{
+	display: none;
+	}
+	
+	.audio-wrapper{
+		width: 140px;
+	}
+}
+
+@media ( max-width : @navbarCollapseWidth) {
+
+		.audio-wrapper{
+		bottom: -5px;
+	}
+	
+}

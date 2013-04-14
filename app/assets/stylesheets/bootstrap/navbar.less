@@ -22,7 +22,11 @@
   min-height: @navbarHeight;
   padding-left:  20px;
   padding-right: 20px;
-  #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+  /* #gradient > .horizontal(@navbarBackgroundHighlight, @navbarBackground); */
+  background-image: linear-gradient(-45deg,
+	@navbarBackgroundHighlightTransparent 25%, @navbarBackgroundTransparent 25%, @navbarBackgroundTransparent 50%,
+	@navbarBackgroundHighlightTransparent 50%, @navbarBackgroundHighlightTransparent 75%, @navbarBackgroundTransparent 75%, @navbarBackgroundTransparent);
+  background-size:120px 120px;
   border: 1px solid @navbarBorder;
   .border-radius(@baseBorderRadius);
   .box-shadow(0 1px 4px rgba(0,0,0,.065));
