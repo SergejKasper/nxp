@@ -1,8 +1,8 @@
 'use strict';
 
 /* Directives */
-
-mymodule.directive('playerelement', function($parse, $timeout) {
+define(["lib/jquery/audioplayer"],function(){
+	var playerelement = function($parse, $timeout) {
 	return {
 		restrict : 'AC',
 		scope : true,
@@ -18,4 +18,7 @@ mymodule.directive('playerelement', function($parse, $timeout) {
 		}
 	};
 
+};
+
+return playerelement;
 });

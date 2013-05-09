@@ -6,10 +6,10 @@
 			<input type="hidden" name="path" value="assets/components/thumbnails/images/1.jpg"/>
 		<ul class="nav nav-pills">
 			<li ng-repeat="menupoint in menupoints" class="pull-left"><a href="{{menupoint.url}}">{{menupoint.name}}</a></li>
-			<li style="margin-right: 10px;">
+			<li>
 				<input type="submit" value="neue Activity"/>
 			</li>
-			<li class="navbar-search pull-right" style="margin-right: 10px; ">
+			<li class="navbar-search pull-right">
 				<input type="text" class="search-query " placeholder="Suche im Partyprogramm!" ng-model="narrowprogram">
 			</li>
 		</ul>

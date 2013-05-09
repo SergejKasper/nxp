@@ -1,8 +1,8 @@
 'use strict';
 
 /* Directives */
-
-mymodule.directive('slider', function($parse) {
+define(["jquery", "lib/jquery/jquery.easing.1.3", "lib/jquery/jquery.eislideshow"],function(){
+	var slider = function($parse) {
 	return {
 		restrict : 'A',
 		scope : {
@@ -22,4 +22,7 @@ mymodule.directive('slider', function($parse) {
 			});
 		}
 	};
+};
+
+return slider;
 });

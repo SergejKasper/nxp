@@ -1,8 +1,8 @@
 'use strict';
 
 /* Directives */
-
-mymodule.directive('ogGrid', function($log, $timeout) {
+define(["components/thumbnails.main.grid"],function(){
+	var expandablethumbs = function($log, $timeout) {
 	
 	var linker = function postLink(scope, lElement, attrs) {
 			
@@ -44,15 +44,19 @@ mymodule.directive('ogGrid', function($log, $timeout) {
 			}
 		});
 		
+
+			return {
+				restrict : 'C',
+				replace : false,
+				scope : {
+					items : '=items',
+					isotopeItemFilter : '=isotopeItemFilter'
+				},
+				link : linker
+			};
 		};
 
-	return {
-		restrict : 'C',
-		replace : false,
-		scope : {
-			items : '=items',
-			isotopeItemFilter : '=isotopeItemFilter'
-		},
-		link : linker
 	};
+
+return expandablethumbs;
 });

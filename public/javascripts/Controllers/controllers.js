@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-
+IndexPageController.$inject = ['$scope'];
 function IndexPageController($scope) {
 	$scope.subnav = {
 		"menupoints" : [ {
@@ -29,9 +29,10 @@ function IndexPageController($scope) {
 	];
 }
 
+//NewActivityController.$inject = ['$scope'];
 function NewActivityController() {
 }
-
+ActivityListController.$inject = ['$scope','$http'];
 function ActivityListController($scope, $http) {
 	$scope.url = '/getActivities';
 	$scope.activities = [];
@@ -45,6 +46,7 @@ function ActivityListController($scope, $http) {
     $scope.update = function() { $scope.sortAsc = !$scope.sortAsc; };
     $scope.isotopeItemFilter = [];
 }
+
 function ActivityDetailController($scope, $routeParams, $http, $timeout) {
 	$scope.url = '/getActivity/' + $routeParams.activityId + '/get';
 	$scope.item = [];

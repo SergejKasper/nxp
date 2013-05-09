@@ -1,26 +1,26 @@
 @(message: String) @main("NoiseXperience2.0"){
 <link rel="stylesheet" media="screen" href="@routes.Assets.at("components/thumbnailgrid/css/component.css")">
-<script src="@routes.Assets.at("components/thumbnailgrid/javascript/grid.js")" type="text/javascript"></script>
+<!--<script src="@routes.Assets.at("components/thumbnailgrid/javascript/grid.js")" type="text/javascript"></script>
 <script src="@routes.Assets.at("components/thumbnailgrid/javascript/directives.js")" type="text/javascript"></script>
 <script src="@routes.Assets.at("components/subnav/subnav.directive.js")" type="text/javascript"></script>
 <script src="@routes.Assets.at("components/slider/slider.directive.js")" type="text/javascript"></script>
-<script src="@routes.Assets.at("components/playerelement/playerelement.directive.js")" type="text/javascript"></script>
+<script src="@routes.Assets.at("components/playerelement/playerelement.directive.js")" type="text/javascript"></script>-->
 <div ng-controller="IndexPageController">
 	<div>
 		<div slider slides="slides" id="ei-slider" class="ei-slider"></div>
 	</div>
 <div class="bg-content">
-	<div class="container">
+	<div class="container" id="partial-content">
 		<div ng-view></div>
 	</div>
 </div>
 </div>
 
-<!-- slider -->
+<!-- slider
 <script src="@routes.Assets.at("components/slider/js/jquery.eislideshow.js")" type="text/javascript"></script>
 <script src="@routes.Assets.at("lib/jquery/jquery.easing.1.3.js")" type="text/javascript"></script>
-<!-- thumbnails -->
+<!-- thumbnails 
 <script src="@routes.Assets.at("lib/jquery/jquery.masonry.min.js")" type="text/javascript"></script>
-<!-- audioPlayer -->
-<script src="@routes.Assets.at("lib/jquery/audioplayer.js")" type="text/javascript"></script>
+<!-- audioPlayer
+<script src="@routes.Assets.at("lib/jquery/audioplayer.js")" type="text/javascript"></script> -->
 }
