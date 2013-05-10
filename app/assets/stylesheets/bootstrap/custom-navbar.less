@@ -4,7 +4,10 @@
 	background-image: linear-gradient(-45deg,
 	@navbarBackgroundHighlightTransparent 25%, @navbarBackgroundTransparent 25%, @navbarBackgroundTransparent 50%,
 	@navbarBackgroundHighlightTransparent 50%, @navbarBackgroundHighlightTransparent 75%, @navbarBackgroundTransparent 75%, @navbarBackgroundTransparent);
-  	background-size:120px 120px;	
+  	background-size:120px 120px;
+  	-webkit-border-radius: 0px 0px 10px 10px;
+	-moz-border-radius: 0px 0px 10px 10px;
+	border-radius: 0px 0px 10px 10px;
 }
 
 #main-nav > div{
@@ -27,10 +30,17 @@
 }
 
 .subnav-container-elem {
-	height: 65px;
+	height: 38px;
 	width: 390px;
 	margin-bottom: 0px;
 	display: block;
+	margin-top: -10px;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 0 1.25em rgba(0, 0, 0, .5); /* 20 */
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 0 1.25em rgba(0, 0, 0, .5); /* 20 */
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 0 1.25em rgba(0, 0, 0, .5); /* 20 */
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
 }
 
 .subnav-fixed {
@@ -60,7 +70,7 @@
 	position: relative;
 	width: 90%;
 	height: 0px;
-	bottom: -60px;
+	bottom: -43px;
 }
 
 @media ( max-width : @navbarCollapseWidth) {

@@ -1,6 +1,5 @@
-
 <ul class="ei-slider-large">
-	<li ng-repeat="slide in slides"><img class="ei-slide" ng-src="assets/components/slider/images/large/{{$index +1}}.jpg" alt="image01" />
+	<li ng-repeat="slide in slides" class="blur-picture"><img class="ei-slide" ng-src="assets/components/slider/images/large/{{$index +1}}.jpg" alt="image01" />
 		<div class="ei-title">
 			<h2>{{slide.title}}</h2>
 			<h3>{{slide.subtitle}}</h3>
@@ -8,5 +7,7 @@
 </ul>
 <ul class="ei-slider-thumbs">
 	<li class="ei-slider-element">Current</li>
-	<li ng-repeat="slide in slides"><a href="#">Slide {{$index + 1}}</a> <img ng-src="assets/components/slider/images/thumbs/{{$index + 1}}.jpg" alt="slide {{slide.index + 1}} Miniatur" /></li>
+	<li><a href="#"><img ng-src="assets/components/slider/images/thumbs/1.jpg" alt="slide 1 Miniatur" /></a></li>
+	<li><a href="#"><img ng-src="assets/components/slider/images/thumbs/2.jpg" alt="slide 2 Miniatur" /></a></li>
+	<li><a href="#"><img ng-src="assets/components/slider/images/thumbs/3.jpg" alt="slide 3 Miniatur" /></a></li>
 </ul>
