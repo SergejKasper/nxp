@@ -47,7 +47,7 @@ public class Application extends Controller {
         response().setHeader("Access-Control-Allow-Origin", "*");       // Need to add the correct domain in here!!
         //response().setHeader("Access-Control-Allow-Methods", "POST");   // Only allow POST
         //response().setHeader("Access-Control-Max-Age", "300");          // Cache response for 5 minutes
-        //response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");         // Ensure this header is also allowed!  
+        response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");         // Ensure this header is also allowed!  
         return ok();
     }
     
