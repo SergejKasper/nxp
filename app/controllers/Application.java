@@ -43,13 +43,31 @@ public class Application extends Controller {
     	return redirect(routes.Application.index());
     }
     
+    public static Result checkPreFlight() {
+        response().setHeader("Access-Control-Allow-Origin", "*");       // Need to add the correct domain in here!!
+        //response().setHeader("Access-Control-Allow-Methods", "POST");   // Only allow POST
+        //response().setHeader("Access-Control-Max-Age", "300");          // Cache response for 5 minutes
+        //response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");         // Ensure this header is also allowed!  
+        return ok();
+    }
+    
+    public static Result checkPreFlightOpt(Long id) {
+        response().setHeader("Access-Control-Allow-Origin", "*");       // Need to add the correct domain in here!!
+        //response().setHeader("Access-Control-Allow-Methods", "POST");   // Only allow POST
+        //response().setHeader("Access-Control-Max-Age", "300");          // Cache response for 5 minutes
+        //response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");         // Ensure this header is also allowed!  
+        return ok();
+    }
+    
     public static Result getActivities(){
     	List<Activity> activities = new Model.Finder(String.class, Activity.class).all();
+    	response().setHeader("Access-Control-Allow-Origin", "*");
     	return ok(Json.toJson(activities));
     }
     
     public static Result getActivity(Long id) {
     	  Activity activity = Activity.get(id);
+    	  response().setHeader("Access-Control-Allow-Origin", "*");
     	  return ok(Json.toJson(activity));
     	}
     

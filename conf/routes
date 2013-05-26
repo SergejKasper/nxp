@@ -11,7 +11,9 @@ GET     /assets/javascript/routes.js    controllers.Application.jsRoutes
 GET     /profile                    controllers.Application.profile
 POST	/addActivity				controllers.Application.addActivity()
 GET		/getActivities				controllers.Application.getActivities()
+OPTIONS /getActivities			    controllers.Application.checkPreFlight
 GET     /getActivity/:id/get       	controllers.Application.getActivity(id: Long)
+OPTIONS /getActivity/:id/get     	controllers.Application.checkPreFlightOpt(id: Long)
 
 GET     /login                      controllers.Application.login
 POST    /login                      controllers.Application.doLogin
