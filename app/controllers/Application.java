@@ -1,13 +1,17 @@
 package controllers;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import org.codehaus.jackson.node.ObjectNode;
 
 import models.Activity;
 import models.User;
 import play.Routes;
 import play.data.Form;
+import play.data.validation.ValidationError;
 import play.db.ebean.Model;
 import play.libs.Json;
 import play.mvc.*;
@@ -28,12 +32,21 @@ import com.avaje.ebean.EbeanServer;
 
 public class Application extends Controller {
   
+	public static final String CLIENT_ORIGIN = "http://lvh.me:8080";
+	public static final String SERVER_ORIGIN = "http://lvh.me:8080";
     public static final String FLASH_MESSAGE_KEY = "message";
 	public static final String FLASH_ERROR_KEY = "error";
 	public static final String USER_ROLE = "user";
 	
     public static Result index() {
         return ok(index.render("NoiseXperience2.0"));
+    }
+    
+    public static Result out(){
+    	response().setHeader("Access-Control-Allow-Origin", CLIENT_ORIGIN);
+    	ObjectNode result = Json.newObject();
+    	result.put("status", "logout");
+    	return ok(result);
     }
 
     
@@ -42,20 +55,12 @@ public class Application extends Controller {
     	activity.save();
     	return redirect(routes.Application.index());
     }
-    
-    public static Result checkPreFlight() {
-        response().setHeader("Access-Control-Allow-Origin", "*");       // Need to add the correct domain in here!!
-        //response().setHeader("Access-Control-Allow-Methods", "POST");   // Only allow POST
+
+    public static Result crossSide(String side) {
+        response().setHeader("Access-Control-Allow-Origin", "http://lvh.me:8080");       // Need to add the correct domain in here!!
+        response().setHeader("Access-Control-Allow-Credentials", "true"); 
         //response().setHeader("Access-Control-Max-Age", "300");          // Cache response for 5 minutes
-        response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");         // Ensure this header is also allowed!  
-        return ok();
-    }
-    
-    public static Result checkPreFlightOpt(Long id) {
-        response().setHeader("Access-Control-Allow-Origin", "*");       // Need to add the correct domain in here!!
-        //response().setHeader("Access-Control-Allow-Methods", "POST");   // Only allow POST
-        //response().setHeader("Access-Control-Max-Age", "300");          // Cache response for 5 minutes
-        //response().setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");         // Ensure this header is also allowed!  
+        response().setHeader("Access-Control-Allow-Headers", "Origin, Credentials, X-Requested-With, Content-Type, Accept");         // Ensure this header is also allowed!  
         return ok();
     }
     
@@ -67,7 +72,7 @@ public class Application extends Controller {
     
     public static Result getActivity(Long id) {
     	  Activity activity = Activity.get(id);
-    	  response().setHeader("Access-Control-Allow-Origin", "*");
+    	  response().setHeader("Access-Control-Allow-Origin", CLIENT_ORIGIN);
     	  return ok(Json.toJson(activity));
     	}
     
@@ -82,13 +87,19 @@ public class Application extends Controller {
 	@Restrict(@Group(Application.USER_ROLE))
 	public static Result restricted() {
 		final User localUser = getLocalUser(session());
-		return ok(restricted.render(localUser));
+		return ok(profile.render(localUser));
 	}
 
 	@Restrict(@Group(Application.USER_ROLE))
 	public static Result profile() {
+		response().setHeader("Access-Control-Allow-Origin", "http://lvh.me:8080");
+		response().setHeader("Access-Control-Allow-Credentials", "true");
 		final User localUser = getLocalUser(session());
-		return ok(profile.render(localUser));
+	 	ObjectNode result = Json.newObject();
+    	result.put("name", localUser.name);
+    	result.put("mail", localUser.email);
+    	result.put("roles", Json.toJson(localUser.roles));
+		return ok(result);
 	}
 
 	//Authentification
@@ -99,14 +110,27 @@ public class Application extends Controller {
 
 	public static Result doLogin() {
 		com.feth.play.module.pa.controllers.Authenticate.noCache(response());
+		response().setHeader("Access-Control-Allow-Origin", "http://lvh.me:8080");
+		response().setHeader("Access-Control-Allow-Credentials", "true"); 
 		final Form<MyLogin> filledForm = MyUsernamePasswordAuthProvider.LOGIN_FORM
 				.bindFromRequest();
 		if (filledForm.hasErrors()) {
 			// User did not fill everything properly
-			return badRequest(login.render(filledForm));
+			ObjectNode result = Json.newObject();
+			ArrayList<String> errorStrings = new ArrayList<String>();
+			for(ValidationError error :  filledForm.globalErrors()){
+				errorStrings.add(error.message());
+			}
+	    	result.put("errors", Json.toJson(errorStrings));
+			return badRequest(result);
 		} else {
 			// Everything was filled
-			return UsernamePasswordAuthProvider.handleLogin(ctx());
+		 	ObjectNode result = Json.newObject();
+	    	result.put("name", "Tesz");
+	    	result.put("mail","Teessst");
+	    	result.put("roles", "2");
+			return ok(result);
+			//return UsernamePasswordAuthProvider.handleLogin(ctx());
 		}
 	}
 
@@ -123,6 +147,7 @@ public class Application extends Controller {
 
 	public static Result doSignup() {
 		com.feth.play.module.pa.controllers.Authenticate.noCache(response());
+		response().setHeader("Access-Control-Allow-Origin", CLIENT_ORIGIN);
 		final Form<MySignup> filledForm = MyUsernamePasswordAuthProvider.SIGNUP_FORM
 				.bindFromRequest();
 		if (filledForm.hasErrors()) {

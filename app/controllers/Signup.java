@@ -1,10 +1,19 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import org.codehaus.jackson.node.ObjectNode;
+
 import models.TokenAction;
 import models.TokenAction.Type;
 import models.User;
 import play.data.Form;
+import play.data.validation.ValidationError;
 import play.i18n.Messages;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import providers.MyLoginUsernamePasswordAuthUser;
@@ -43,7 +52,12 @@ public class Signup extends Controller {
 
 	public static Result unverified() {
 		com.feth.play.module.pa.controllers.Authenticate.noCache(response());
-		return ok(unverified.render());
+		ObjectNode result = Json.newObject();
+		result.put("message", Messages.get("playauthenticate.verify.account.before"));
+		Map<String, String> actionStrings = new HashMap<String, String>();
+		actionStrings.put("validate", Messages.get("playauthenticate.verify.account.first"));
+    	result.put("actions", Json.toJson(actionStrings));
+		return ok(result);
 	}
 
 	private static final Form<MyIdentity> FORGOT_PASSWORD_FORM = form(MyIdentity.class);
