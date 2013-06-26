@@ -3,11 +3,13 @@
 # ~~~~
 
 # Home page
+
 GET     /                           controllers.Application.index()
 OPTIONS /*side						controllers.Application.crossSide(side: String)
 GET     /out                        controllers.Application.out()
 
 # Private
+
 GET     /restricted                 controllers.Application.restricted
 
 GET     /assets/javascript/routes.js    controllers.Application.jsRoutes

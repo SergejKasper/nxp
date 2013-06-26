@@ -7,14 +7,14 @@ import be.objectify.deadbolt.java.AbstractDeadboltHandler;
 import be.objectify.deadbolt.java.DynamicResourceHandler;
 import be.objectify.deadbolt.core.models.Subject;
 
-import com.feth.play.module.pa.PlayAuthenticate;
+import providers.APIPlayAuthenticate;
 import com.feth.play.module.pa.user.AuthUserIdentity;
 
 public class MyDeadboltHandler extends AbstractDeadboltHandler {
 
 	@Override
 	public Result beforeAuthCheck(final Http.Context context) {
-		if (PlayAuthenticate.isLoggedIn(context.session())) {
+		if (APIPlayAuthenticate.isLoggedIn(context.session())) {
 			// user is logged in
 			return null;
 		} else {
@@ -24,18 +24,18 @@ public class MyDeadboltHandler extends AbstractDeadboltHandler {
 			// was requested before sending him to the login page
 			// if you don't call this, the user will get redirected to the page
 			// defined by your resolver
-			final String originalUrl = PlayAuthenticate
+			final String originalUrl = APIPlayAuthenticate
 					.storeOriginalUrl(context);
 
 			context.flash().put("error",
 					"You need to log in first, to view '" + originalUrl + "'");
-			return redirect(PlayAuthenticate.getResolver().login());
+			return redirect(APIPlayAuthenticate.getResolver().login());
 		}
 	}
 
 	@Override
 	public Subject getSubject(final Http.Context context) {
-		final AuthUserIdentity u = PlayAuthenticate.getUser(context);
+		final AuthUserIdentity u = APIPlayAuthenticate.getUser(context);
 		// Caching might be a good idea here
 		return User.findByAuthUserIdentity(u);
 	}

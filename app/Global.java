@@ -6,8 +6,6 @@ import models.Activity;
 import models.SecurityRole;
 
 import com.avaje.ebean.Ebean;
-import com.feth.play.module.pa.PlayAuthenticate;
-import com.feth.play.module.pa.PlayAuthenticate.Resolver;
 import com.feth.play.module.pa.exceptions.AccessDeniedException;
 import com.feth.play.module.pa.exceptions.AuthException;
 
@@ -17,11 +15,12 @@ import play.Application;
 import play.GlobalSettings;
 import play.libs.Yaml;
 import play.mvc.Call;
-
+import providers.APIPlayAuthenticate;
+import providers.APIPlayAuthenticate.Resolver;
 public class Global extends GlobalSettings {
 
 	public void onStart(Application app) {
-		PlayAuthenticate.setResolver(new Resolver() {
+		APIPlayAuthenticate.setResolver(new Resolver() {
 
 			@Override
 			public Call login() {

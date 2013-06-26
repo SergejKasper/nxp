@@ -37,6 +37,7 @@ public class Application extends Controller {
     public static final String FLASH_MESSAGE_KEY = "message";
 	public static final String FLASH_ERROR_KEY = "error";
 	public static final String USER_ROLE = "user";
+	private static final Object ORIGINAL_URL = "pa.url.orig";
 	
     public static Result index() {
         return ok(index.render("NoiseXperience2.0"));
@@ -111,7 +112,8 @@ public class Application extends Controller {
 	public static Result doLogin() {
 		com.feth.play.module.pa.controllers.Authenticate.noCache(response());
 		response().setHeader("Access-Control-Allow-Origin", "http://lvh.me:8080");
-		response().setHeader("Access-Control-Allow-Credentials", "true"); 
+		response().setHeader("Access-Control-Allow-Credentials", "true");
+		response().setHeader("Access-Control-Allow-Headers", "Origin, Credentials, X-Requested-With, Content-Type, Accept");         
 		final Form<MyLogin> filledForm = MyUsernamePasswordAuthProvider.LOGIN_FORM
 				.bindFromRequest();
 		if (filledForm.hasErrors()) {
@@ -125,12 +127,14 @@ public class Application extends Controller {
 			return badRequest(result);
 		} else {
 			// Everything was filled
-		 	ObjectNode result = Json.newObject();
-	    	result.put("name", "Tesz");
-	    	result.put("mail","Teessst");
-	    	result.put("roles", "2");
-			return ok(result);
-			//return UsernamePasswordAuthProvider.handleLogin(ctx());
+		 	//ObjectNode result = Json.newObject();
+	    	//result.put("name", "Tesz");
+	    	//result.put("mail","Teessst");
+	    	//result.put("roles", "2");
+			//return ok(result);
+			//ctx().session().remove(ORIGINAL_URL);
+			ctx().session().put("pa.isapi", "true");
+			return MyUsernamePasswordAuthProvider.handleLogin(ctx());
 		}
 	}
 
@@ -157,7 +161,7 @@ public class Application extends Controller {
 			// Everything was filled
 			// do something with your part of the form before handling the user
 			// signup
-			return UsernamePasswordAuthProvider.handleSignup(ctx());
+			return MyUsernamePasswordAuthProvider.handleSignup(ctx());
 		}
 	}
 

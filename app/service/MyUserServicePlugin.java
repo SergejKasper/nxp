@@ -2,7 +2,8 @@ package service;
 
 import models.User;
 import play.Application;
-
+import providers.APIPlayAuthenticate;
+import play.Logger;
 import com.feth.play.module.pa.user.AuthUser;
 import com.feth.play.module.pa.user.AuthUserIdentity;
 import com.feth.play.module.pa.service.UserServicePlugin;
@@ -55,6 +56,15 @@ public class MyUserServicePlugin extends UserServicePlugin {
 		// User logged in again, bump last login date
 		User.setLastLoginDate(knownUser);
 		return knownUser;
+	}
+	
+	@Override
+	public void onStart() {
+		if(APIPlayAuthenticate.hasUserService()) {
+			Logger.warn("A user service was already registered - replacing the old one, " +
+					"however this might hint to a configuration problem if this is a production environment.");
+		}
+		APIPlayAuthenticate.setUserService(this);
 	}
 
 }

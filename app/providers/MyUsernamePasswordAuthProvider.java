@@ -1,8 +1,6 @@
 package providers;
 
 import com.feth.play.module.mail.Mailer.Mail.Body;
-import com.feth.play.module.pa.PlayAuthenticate;
-import com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider;
 import com.feth.play.module.pa.providers.password.UsernamePasswordAuthUser;
 import controllers.routes;
 import models.LinkedAccount;
@@ -19,6 +17,7 @@ import play.i18n.Lang;
 import play.i18n.Messages;
 import play.mvc.Call;
 import play.mvc.Http.Context;
+import play.mvc.Result;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -30,7 +29,7 @@ import static play.data.Form.form;
 
 public class MyUsernamePasswordAuthProvider
 		extends
-		UsernamePasswordAuthProvider<String, MyLoginUsernamePasswordAuthUser, MyUsernamePasswordAuthUser, MyUsernamePasswordAuthProvider.MyLogin, MyUsernamePasswordAuthProvider.MySignup> {
+		APIUsernamePasswordAuthProvider<String, MyLoginUsernamePasswordAuthUser, MyUsernamePasswordAuthUser, MyUsernamePasswordAuthProvider.MyLogin, MyUsernamePasswordAuthProvider.MySignup> {
 
 	private static final String SETTING_KEY_VERIFICATION_LINK_SECURE = SETTING_KEY_MAIL
 			+ "." + "verificationLink.secure";
@@ -39,7 +38,7 @@ public class MyUsernamePasswordAuthProvider
 	private static final String SETTING_KEY_LINK_LOGIN_AFTER_PASSWORD_RESET = "loginAfterPasswordReset";
 
 	private static final String EMAIL_TEMPLATE_FALLBACK_LANGUAGE = "en";
-
+	
 	@Override
 	protected List<String> neededSettingKeys() {
 		final List<String> needed = new ArrayList<String>(
@@ -51,8 +50,8 @@ public class MyUsernamePasswordAuthProvider
 	}
 
 	public static MyUsernamePasswordAuthProvider getProvider() {
-		return (MyUsernamePasswordAuthProvider) PlayAuthenticate
-				.getProvider(UsernamePasswordAuthProvider.PROVIDER_KEY);
+		return (MyUsernamePasswordAuthProvider) APIPlayAuthenticate
+				.getProvider(APIUsernamePasswordAuthProvider.PROVIDER_KEY);
 	}
 
 	public static class MyIdentity {
@@ -71,8 +70,7 @@ public class MyUsernamePasswordAuthProvider
 	}
 
 	public static class MyLogin extends MyIdentity
-			implements
-			com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider.UsernamePassword {
+			implements APIUsernamePasswordAuthProvider.UsernamePassword {
 
 		@Required
 		@MinLength(5)
@@ -123,7 +121,7 @@ public class MyUsernamePasswordAuthProvider
 	}
 
 	@Override
-	protected com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider.SignupResult signupUser(final MyUsernamePasswordAuthUser user) {
+	protected APIUsernamePasswordAuthProvider.SignupResult signupUser(final MyUsernamePasswordAuthUser user) {
 		final User u = User.findByUsernamePasswordIdentity(user);
 		if (u != null) {
 			if (u.emailValidated) {
@@ -146,7 +144,7 @@ public class MyUsernamePasswordAuthProvider
 	}
 
 	@Override
-	protected com.feth.play.module.pa.providers.password.UsernamePasswordAuthProvider.LoginResult loginUser(
+	protected APIUsernamePasswordAuthProvider.LoginResult loginUser(
 			final MyLoginUsernamePasswordAuthUser authUser) {
 		final User u = User.findByUsernamePasswordIdentity(authUser);
 		if (u == null) {
